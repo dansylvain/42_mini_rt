@@ -20,11 +20,11 @@ void	newton_move_spheres(t_data *data)
 	t_sphere *sphere;
 	t_ray_vector point;
 	static int i = 1;
-	
+	static int j = 1;
 	printf("Newton's third law: For every action, there is an equal and opposite reaction.\n");
 	while (obj_num < data->sp_nbr)
 	{
-		if (obj_num == 0)
+		if (j < 23 && obj_num == 0)
 		{
 			if ((i % 11) - 1 == 0)
 				angle_sp0 = -angle_sp0;
@@ -44,7 +44,7 @@ void	newton_move_spheres(t_data *data)
 			trsl_mesh(NULL, &sphere->origin_vect, point.axis);
 
 		}
-		if (obj_num == 6)
+		if (j >= 23 && obj_num == 6)
 		{
 			if ((i % 11) - 1 == 0)
 				angle_sp1 = -angle_sp1;
@@ -68,6 +68,9 @@ void	newton_move_spheres(t_data *data)
 		
 	}
 	i++;
-
+	j++;
+	if (j == 45)
+		j = 1;
+	printf("i: %i\n", i);
 
 }
