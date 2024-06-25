@@ -93,19 +93,8 @@ void	newton_move_spheres(t_data *data)
 			symmetrize_vector(point.axis);
 			trsl_mesh(NULL, &cylinder->origin_vect, point.axis);
 
-			// if ((i % 11) - 1 == 0)
-			// 	angle_sp0 = -angle_sp0;
-			// cylinder = &data->cylinders[cylinder_nbr];
-			point.axis[0] = 30;
-			point.axis[1] = -50;
-			point.axis[2] = 0;
-
 			trsl_mesh(NULL, &cylinder->origin_vect, point.axis);
 
-
-			axe[0] = 0;
-			axe[1] = 0;
-			axe[2] = 1;
 			rotate_mesh(&cylinder->axis_vect, angle_sp0, axe);
 
 
@@ -129,31 +118,66 @@ void	newton_move_spheres(t_data *data)
 			symmetrize_vector(point.axis);
 			trsl_mesh(NULL, &cylinder->origin_vect, point.axis);
 
-			// if ((i % 11) - 1 == 0)
-			// 	angle_sp0 = -angle_sp0;
-			// cylinder = &data->cylinders[cylinder_nbr];
-			point.axis[0] = -30;
-			point.axis[1] = -50;
-			point.axis[2] = 0;
-
 			trsl_mesh(NULL, &cylinder->origin_vect, point.axis);
 
-
-			axe[0] = 0;
-			axe[1] = 0;
-			axe[2] = 1;
 			rotate_mesh(&cylinder->axis_vect, angle_sp1, axe);
 
 
 			symmetrize_vector(point.axis);
 			trsl_mesh(NULL, &cylinder->origin_vect, point.axis);
-
 		}
-		cylinder_nbr++;
-		
+		if (j < 23 && (cylinder_nbr == 7 || cylinder_nbr == 8))
+		{
+			cylinder = &data->cylinders[cylinder_nbr];
+			point.axis[0] = 30;
+			point.axis[1] = -50;
+			point.axis[2] = 0;
+
+
+			trsl_mesh(NULL, &cylinder->origin_vect, point.axis);
+			axe[0] = 0;
+			axe[1] = 0;
+			axe[2] = 1;
+			rotate_mesh(&cylinder->origin_vect, angle_sp0, axe);
+
+			symmetrize_vector(point.axis);
+			trsl_mesh(NULL, &cylinder->origin_vect, point.axis);
+
+			trsl_mesh(NULL, &cylinder->origin_vect, point.axis);
+
+			rotate_mesh(&cylinder->axis_vect, angle_sp0, axe);
+
+
+			symmetrize_vector(point.axis);
+			trsl_mesh(NULL, &cylinder->origin_vect, point.axis);
+		}
+		if (j >= 23 && (cylinder_nbr == 19 || cylinder_nbr == 20))
+		{
+			cylinder = &data->cylinders[cylinder_nbr];
+			point.axis[0] = -30;
+			point.axis[1] = -50;
+			point.axis[2] = 0;
+
+
+			trsl_mesh(NULL, &cylinder->origin_vect, point.axis);
+			axe[0] = 0;
+			axe[1] = 0;
+			axe[2] = 1;
+			rotate_mesh(&cylinder->origin_vect, angle_sp1, axe);
+
+			symmetrize_vector(point.axis);
+			trsl_mesh(NULL, &cylinder->origin_vect, point.axis);
+
+			trsl_mesh(NULL, &cylinder->origin_vect, point.axis);
+
+			rotate_mesh(&cylinder->axis_vect, angle_sp1, axe);
+
+
+			symmetrize_vector(point.axis);
+			trsl_mesh(NULL, &cylinder->origin_vect, point.axis);
+		}
+		cylinder_nbr++;	
 	}
-
-
 	i++;
 	j++;
 	if (j == 45)
