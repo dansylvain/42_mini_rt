@@ -15,40 +15,59 @@ void	newton_move_spheres(t_data *data)
 {
 	int axe[3];
 	int obj_num = 0;
-	double angle = -ANGLE_NEWTON;
+	static double angle_sp0 = ANGLE_NEWTON;
+	static double angle_sp1 = -ANGLE_NEWTON;
 	t_sphere *sphere;
 	t_ray_vector point;
-	
+	static int i = 1;
 	
 	printf("Newton's third law: For every action, there is an equal and opposite reaction.\n");
-	if (obj_num == 0)
+	while (obj_num < data->sp_nbr)
 	{
-		sphere = &data->spheres[obj_num];
-		point.axis[0] = sphere->origin_vect.axis[0];
-		point.axis[1] = sphere->origin_vect.axis[1];
-		point.axis[2] = sphere->origin_vect.axis[2];
+		if (obj_num == 0)
+		{
+			if ((i % 11) - 1 == 0)
+				angle_sp0 = -angle_sp0;
+			sphere = &data->spheres[obj_num];
+			point.axis[0] = 30;
+			point.axis[1] = -50;
+			point.axis[2] = 0;
 
 
-		trsl_mesh(NULL, &sphere->origin_vect, point.axis);
-		// axe[0] = 1;
-		// axe[1] = 0;
-		// axe[2] = 0;
-		// rotate_mesh(&sphere->origin_vect, angle, axe);
-		// axe[0] = 0;
-		// axe[1] = 1;
-		// axe[2] = 0;
-		// rotate_mesh(&sphere->origin_vect, angle, axe);
-		axe[0] = 0;
-		axe[1] = 0;
-		axe[2] = 1;
-		rotate_mesh(&sphere->origin_vect, angle, axe);
+			trsl_mesh(NULL, &sphere->origin_vect, point.axis);
+			axe[0] = 0;
+			axe[1] = 0;
+			axe[2] = 1;
+			rotate_mesh(&sphere->origin_vect, angle_sp0, axe);
 
-		symmetrize_vector(point.axis);
-		trsl_mesh(NULL, &sphere->origin_vect, point.axis);
+			symmetrize_vector(point.axis);
+			trsl_mesh(NULL, &sphere->origin_vect, point.axis);
 
+		}
+		if (obj_num == 6)
+		{
+			if ((i % 11) - 1 == 0)
+				angle_sp1 = -angle_sp1;
+			sphere = &data->spheres[obj_num];
+			point.axis[0] = -30;
+			point.axis[1] = -50;
+			point.axis[2] = 0;
+
+
+			trsl_mesh(NULL, &sphere->origin_vect, point.axis);
+			axe[0] = 0;
+			axe[1] = 0;
+			axe[2] = 1;
+			rotate_mesh(&sphere->origin_vect, angle_sp1, axe);
+
+			symmetrize_vector(point.axis);
+			trsl_mesh(NULL, &sphere->origin_vect, point.axis);
+
+		}
 		obj_num++;
+		
 	}
-
+	i++;
 
 
 }
