@@ -188,7 +188,7 @@ void	newton_move_spheres(t_data *data)
 
 	pointm.axis[0] = 0;
 	pointm.axis[1] = 0;
-	pointm.axis[2] = 104;
+	pointm.axis[2] = 120;
 	
 	trsl_cam(cam, &pointm, pointm.axis);
 	axe[0] = 0;
