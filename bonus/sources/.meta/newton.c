@@ -25,7 +25,7 @@ void	newton_move_spheres(t_data *data)
 	static int j = 1;
 	static int k = 1;
 	static int l = 1;
-	printf("Newton's third law: For every action, there is an equal and opposite reaction.\n");
+	printf("The first rule of Fight Club is: you don't talk about Fight Club\n");
 	
 	// ROTATE SPHERES
 	while (sphere_num < data->sp_nbr)
