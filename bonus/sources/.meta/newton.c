@@ -178,10 +178,30 @@ void	newton_move_spheres(t_data *data)
 		}
 		cylinder_nbr++;	
 	}
+
+
+
+	static double angle = 3;
+
+	t_cam *cam = &data->cam;
+	t_matrix_vector pointm;
+
+	pointm.axis[0] = 0;
+	pointm.axis[1] = 0;
+	pointm.axis[2] = 104;
+	
+	trsl_cam(cam, &pointm, pointm.axis);
+	axe[0] = 0;
+	axe[1] = 1;
+	axe[2] = 0;
+	rotate_cam(cam, angle, axe);
+	symmetrize_vector(pointm.axis);
+	trsl_cam(cam, &pointm, pointm.axis);
+
+
+
 	i++;
 	j++;
 	if (j == 45)
 		j = 1;
-	printf("i: %i\n", i);
-
 }

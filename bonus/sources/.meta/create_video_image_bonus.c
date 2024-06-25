@@ -57,7 +57,7 @@ void	video_rotate_spheres(t_sphere *sphere, int obj_num, int sp_nbr)
 		trsl_mesh(NULL, &sphere->origin_vect, point.axis);
 		axe[0] = 1;
 		axe[1] = 0;
-		axe[2] = 0;
+		axe[2] = 0; 
 		rotate_mesh(&sphere->origin_vect, angle, axe);
 		axe[0] = 0;
 		axe[1] = 1;
@@ -192,7 +192,7 @@ void	video_rotate_cam(t_cam *cam)
 	axe[2] = 0;
 	rotate_cam(cam, angle, axe);
 	symmetrize_vector(point.axis);
-	// trsl_cam(cam, &point, point.axis);
+	trsl_cam(cam, &point, point.axis);
 }
 
 
