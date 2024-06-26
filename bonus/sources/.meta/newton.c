@@ -1,7 +1,7 @@
 # include "se_mini_struct_bonus.h"
 # include "x_matrix_bonus.h"
 
-#define ANGLE_NEWTON 3
+#define ANGLE_NEWTON 1
 
 void	generate_video_frames(t_data *data);
 void	rotate_mesh(t_matrix_vector *vect, double angle, int axe[]);
@@ -25,14 +25,14 @@ void	newton_move_spheres(t_data *data)
 	static int j = 1;
 	static int k = 1;
 	static int l = 1;
-	printf("The first rule of Fight Club is: you don't talk about Fight Club\n");
+	// printf("The first rule of Fight Club is: you don't talk about Fight Club\n");
 	
 	// ROTATE SPHERES
 	while (sphere_num < data->sp_nbr)
 	{
-		if (j < 23 && sphere_num == 0)
+		if (j < 61 && sphere_num == 0)
 		{
-			if ((i % 11) - 1 == 0)
+			if ((i % 30) - 1 == 0)
 				angle_sp0 = -angle_sp0;
 			sphere = &data->spheres[sphere_num];
 			point.axis[0] = 30;
@@ -50,9 +50,9 @@ void	newton_move_spheres(t_data *data)
 			trsl_mesh(NULL, &sphere->origin_vect, point.axis);
 
 		}
-		if (j >= 23 && sphere_num == 6)
+		if (j >= 61 && sphere_num == 6)
 		{
-			if ((i % 11) - 1 == 0)
+			if ((i % 30) - 1 == 0)
 				angle_sp1 = -angle_sp1;
 			sphere = &data->spheres[sphere_num];
 			point.axis[0] = -30;
@@ -181,27 +181,29 @@ void	newton_move_spheres(t_data *data)
 
 
 
-	static double angle = 3;
+	// static double angle = 1;
 
-	t_cam *cam = &data->cam;
-	t_matrix_vector pointm;
+	// t_cam *cam = &data->cam;
+	// t_matrix_vector pointm;
 
-	pointm.axis[0] = 0;
-	pointm.axis[1] = 0;
-	pointm.axis[2] = 120;
+	// pointm.axis[0] = 0;
+	// pointm.axis[1] = 0;
+	// pointm.axis[2] = 120;
 	
-	trsl_cam(cam, &pointm, pointm.axis);
-	axe[0] = 0;
-	axe[1] = 1;
-	axe[2] = 0;
-	rotate_cam(cam, angle, axe);
-	symmetrize_vector(pointm.axis);
-	trsl_cam(cam, &pointm, pointm.axis);
+	// trsl_cam(cam, &pointm, pointm.axis);
+	// axe[0] = 0;
+	// axe[1] = 1;
+	// axe[2] = 0;
+	// rotate_cam(cam, angle, axe);
+	// symmetrize_vector(pointm.axis);
+	// trsl_cam(cam, &pointm, pointm.axis);
 
 
 
 	i++;
 	j++;
-	if (j == 45)
+	printf("i: %i, j: %i\n", i, j);
+
+	if (j == 121)
 		j = 1;
 }
