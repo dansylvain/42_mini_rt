@@ -76,7 +76,7 @@ void	newton_move_spheres(t_data *data)
 
 	while (cylinder_nbr < data->cy_nbr)
 	{
-		if (j < 23 && cylinder_nbr == 0)
+		if (j < 61 && cylinder_nbr == 0)
 		{
 			cylinder = &data->cylinders[cylinder_nbr];
 			point.axis[0] = 30;
@@ -101,7 +101,7 @@ void	newton_move_spheres(t_data *data)
 			symmetrize_vector(point.axis);
 			trsl_mesh(NULL, &cylinder->origin_vect, point.axis);
 		}
-		if (j >= 23 && cylinder_nbr == 6)
+		if (j >= 61 && cylinder_nbr == 6)
 		{
 			cylinder = &data->cylinders[cylinder_nbr];
 			point.axis[0] = -30;
@@ -126,7 +126,7 @@ void	newton_move_spheres(t_data *data)
 			symmetrize_vector(point.axis);
 			trsl_mesh(NULL, &cylinder->origin_vect, point.axis);
 		}
-		if (j < 23 && (cylinder_nbr == 7 || cylinder_nbr == 8))
+		if (j < 61 && (cylinder_nbr == 7 || cylinder_nbr == 8))
 		{
 			cylinder = &data->cylinders[cylinder_nbr];
 			point.axis[0] = 30;
@@ -151,7 +151,7 @@ void	newton_move_spheres(t_data *data)
 			symmetrize_vector(point.axis);
 			trsl_mesh(NULL, &cylinder->origin_vect, point.axis);
 		}
-		if (j >= 23 && (cylinder_nbr == 19 || cylinder_nbr == 20))
+		if (j >= 61 && (cylinder_nbr == 19 || cylinder_nbr == 20))
 		{
 			cylinder = &data->cylinders[cylinder_nbr];
 			point.axis[0] = -30;
@@ -181,22 +181,22 @@ void	newton_move_spheres(t_data *data)
 
 
 
-	// static double angle = 1;
+	static double angle = 1;
 
-	// t_cam *cam = &data->cam;
-	// t_matrix_vector pointm;
+	t_cam *cam = &data->cam;
+	t_matrix_vector pointm;
 
-	// pointm.axis[0] = 0;
-	// pointm.axis[1] = 0;
-	// pointm.axis[2] = 120;
+	pointm.axis[0] = 0;
+	pointm.axis[1] = 0;
+	pointm.axis[2] = 120;
 	
-	// trsl_cam(cam, &pointm, pointm.axis);
-	// axe[0] = 0;
-	// axe[1] = 1;
-	// axe[2] = 0;
-	// rotate_cam(cam, angle, axe);
-	// symmetrize_vector(pointm.axis);
-	// trsl_cam(cam, &pointm, pointm.axis);
+	trsl_cam(cam, &pointm, pointm.axis);
+	axe[0] = 0;
+	axe[1] = 1;
+	axe[2] = 0;
+	rotate_cam(cam, angle, axe);
+	symmetrize_vector(pointm.axis);
+	trsl_cam(cam, &pointm, pointm.axis);
 
 
 
