@@ -6,6 +6,7 @@ void	rotate_pendulum(t_sphere *sphere, int i);
 void	video_move_cam(t_cam *cam);
 void	video_move_light(t_spotlight *light);
 void	make_rt_file(t_data *data);
+void	newton_move_spheres(t_data *data);
 
 int	generate_video_frames(t_data *data, char **envp)
 {
@@ -15,7 +16,6 @@ int	generate_video_frames(t_data *data, char **envp)
 	i = 0;
 	while (envp[i])
 	{
-		// printf("envp[%i] = %s\n", i, envp[i]);
 		if (ft_strncmp(envp[i], "VIDEO_GEN=true", 20) == 0)
 		{
 			data->is_gen_vid = 1;
@@ -26,20 +26,10 @@ int	generate_video_frames(t_data *data, char **envp)
 	if (data->is_gen_vid == 0)
 		return (0);
 	i = 0;
-	while(i < 32)
+	while(i < 360)
 	{
-		// printf("i = %d\n", i);
-		// i = 0;
-		// while (i < data->cy_nbr)
-		// {
-		// 	video_rotate_cogs(&data->cylinders[i], i, data->cy_nbr);
-		// 	i++;
-		// }
-		// rotate_pendulum(&data->spheres[0] , j);
-		// video_move_cam(&data->cam);
-		// video_move_light(&data->spotlight);
-		// make_rt_file(data);
-		// j++;
+		newton_move_spheres(data);
+		make_rt_file(data);
 		i++;
 	}
 	return (1);
@@ -52,13 +42,14 @@ void	is_it_a_test(t_data *data, char **envp)
 {
 	int	i;
 
-	data->is_test = 0;
+	data->is_test = 0; 
 	i = 0;
 	while (envp[i])
 	{
 		if (ft_strncmp(envp[i], "AUTOMATED_TEST=true", 20) == 0)
 		{
 			data->is_test = 1;
+			data->event.antia = 1;
 			break ;
 		}
 		if (ft_strncmp(envp[i], "TESTING=true", 13) == 0)

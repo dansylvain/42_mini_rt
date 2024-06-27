@@ -70,7 +70,7 @@ void	make_rt_file(t_data *data)
 	static int j = 0;
 
 	create_filename(filename, &j, ".rt");
-
+	printf("filename: %s\n", filename);
 	fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0644);
 
 	dprintf(fd, "A ");
@@ -127,7 +127,7 @@ void	make_rt_file(t_data *data)
 		write_vector(fd, &data->planes[i].origin_vect);
 		write_vector(fd, &data->planes[i].norm_vect);
 		write_color(fd, &data->planes[i].color);
-		dprintf(fd, "%.*f", 2, (data->triangles[i].reflexion_coef));
+		dprintf(fd, "%.*f", 2, (data->planes[i].reflexion_coef));
 		write_fd(fd, "\n");
 		i++;
 	}

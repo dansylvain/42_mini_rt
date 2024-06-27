@@ -179,8 +179,6 @@ void	newton_move_spheres(t_data *data)
 		cylinder_nbr++;	
 	}
 
-
-
 	static double angle = 1;
 
 	t_cam *cam = &data->cam;

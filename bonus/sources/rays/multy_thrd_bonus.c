@@ -1,4 +1,5 @@
 #include "multy_thrd_bonus.h"
+void	multy_thrd_launch_rays(t_mlx *mlx, t_data *data);
 
 /**========================================================================
  *                            FREE_DATA_COPY
@@ -37,7 +38,9 @@ static void	close_multy_thrd_launch_rays(t_mlx *mlx, t_data *data,
 	else if (data->event.antia == 2)
 		data->event.antia = 0;
 	if (data->is_test == 1)
+	{
 		make_bin_file(data, mlx);
+	}
 }
 
 /**========================================================================
