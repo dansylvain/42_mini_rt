@@ -1,7 +1,7 @@
 # include "se_mini_struct_bonus.h"
 # include "x_matrix_bonus.h"
 
-#define ANGLE_NEWTON 1
+#define ANGLE_NEWTON 2
 
 void	generate_video_frames(t_data *data);
 void	rotate_mesh(t_matrix_vector *vect, double angle, int axe[]);
@@ -179,14 +179,14 @@ void	newton_move_spheres(t_data *data)
 		cylinder_nbr++;	
 	}
 
-	static double angle = 1;
+	static double angle = 2;
 
 	t_cam *cam = &data->cam;
 	t_matrix_vector pointm;
 
 	pointm.axis[0] = 0;
 	pointm.axis[1] = 0;
-	pointm.axis[2] = 120;
+	pointm.axis[2] = 180;
 	
 	trsl_cam(cam, &pointm, pointm.axis);
 	axe[0] = 0;

@@ -26,7 +26,7 @@ int	generate_video_frames(t_data *data, char **envp)
 	if (data->is_gen_vid == 0)
 		return (0);
 	i = 0;
-	while(i < 360)
+	while(i < 180)
 	{
 		newton_move_spheres(data);
 		make_rt_file(data);
