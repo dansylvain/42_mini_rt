@@ -59,11 +59,11 @@ void	*launch_rays(void *multy_input)
 		x = multy->x_stt;
 		while (++x < multy->x_end)
 		{
-			if (multy->data->event.antia == 2)
+			// if (multy->data->event.antia == 2)
 				exec_launch_rays_antia(&multy->mlx, multy->data, x, y);
-			if (!multy->data->event.antia)
-				exec_launch_rays(&multy->mlx, multy->data, x, y);
-			add_xpm_items(&multy->mlx, multy->data, x, y);
+			// if (!multy->data->event.antia)
+			// 	exec_launch_rays(&multy->mlx, multy->data, x, y);
+			// add_xpm_items(&multy->mlx, multy->data, x, y);
 		}
 	}
 	return (NULL);

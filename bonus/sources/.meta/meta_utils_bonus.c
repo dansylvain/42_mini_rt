@@ -49,7 +49,7 @@ void	is_it_a_test(t_data *data, char **envp)
 		if (ft_strncmp(envp[i], "AUTOMATED_TEST=true", 20) == 0)
 		{
 			data->is_test = 1;
-			data->event.antia = 1;
+			// data->event.antia = 1;
 			break ;
 		}
 		if (ft_strncmp(envp[i], "TESTING=true", 13) == 0)
