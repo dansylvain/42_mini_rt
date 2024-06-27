@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rays_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svidot <svidot@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 15:48:53 by svidot            #+#    #+#             */
-/*   Updated: 2024/06/26 15:48:54 by svidot           ###   ########.fr       */
+/*   Updated: 2024/06/27 15:35:07 by dsylvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,11 @@ void	*launch_rays(void *multy_input)
 		x = multy->x_stt - 1;
 		while (++x < multy->x_end)
 		{
-			// if (multy->data->event.antia == 2)
+			if (multy->data->event.antia == 2)
 				exec_launch_rays_antia(&multy->mlx, multy->data, x, y);
-			// if (!multy->data->event.antia)
-			// 	exec_launch_rays(&multy->mlx, multy->data, x, y);
-			// add_xpm_items(&multy->mlx, multy->data, x, y);
+			if (!multy->data->event.antia)
+				exec_launch_rays(&multy->mlx, multy->data, x, y);
+			add_xpm_items(&multy->mlx, multy->data, x, y);
 		}
 	}
 	return (NULL);
