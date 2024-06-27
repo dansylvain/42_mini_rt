@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   color_disruption_utils_bonus.c                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: seblin <seblin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/26 15:46:26 by svidot            #+#    #+#             */
+/*   Updated: 2024/06/27 07:41:47 by seblin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "color_disruption_utils_bonus.h"
 
 /**========================================================================
@@ -10,6 +22,9 @@ int	hex_to_int(const char *hex_string)
 	return ((int)strtol(hex_string + 1, NULL, 16));
 }
 
+/**========================================================================
+ *                            ASSIGN_RGB
+ *========================================================================**/
 void	assign_rgb(t_sphere *sphere, t_color *color, double value)
 {
 	int	rgb_value;
@@ -53,13 +68,9 @@ void	calculate_uv(t_sphere *sphere, t_ray_vector point, double *u, double *v)
 	*u = 0.5 + atan2(point.axis[2], point.axis[0]) / (2 * M_PI);
 	*v = 0.5 - asin(point.axis[1]) / M_PI;
 	if (sphere->checkerboard && sphere->rotation_angle_x < 0)
-		sphere->rotation_angle_x = xpm_size_x - 1;
+		sphere->rotation_angle_x += xpm_size_x;
 	if (sphere->checkerboard && sphere->rotation_angle_y < 0)
-		sphere->rotation_angle_y = xpm_size_y - 1;
-	if (sphere->checkerboard && sphere->rotation_angle_x > xpm_size_x)
-		sphere->rotation_angle_x = 0;
-	if (sphere->checkerboard && sphere->rotation_angle_y > xpm_size_y)
-		sphere->rotation_angle_y = 0;
+		sphere->rotation_angle_y += xpm_size_y;
 	*u += sphere->rotation_angle_x / xpm_size_x;
 	*v += sphere->rotation_angle_y / xpm_size_y;
 }

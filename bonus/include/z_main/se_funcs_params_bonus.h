@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   se_funcs_params_bonus.h                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: svidot <svidot@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/26 13:39:46 by svidot            #+#    #+#             */
+/*   Updated: 2024/06/26 13:39:47 by svidot           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SE_FUNCS_PARAMS_BONUS_H
 # define SE_FUNCS_PARAMS_BONUS_H
 
 # define TRI_E 1e-6
-# define THR 16
-# define THR_SQRT 4
-# define THR_INV_SQRT 0.25
+# define THR 4
+# define THR_SQRT 2
+# define THR_INV_SQRT 0.5
 
 typedef struct s_intersection_params
 {

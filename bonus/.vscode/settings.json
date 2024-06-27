@@ -22,9 +22,7 @@
 		"get_texture_utils_bonus.h": "c",
 		"get_next_line.h": "c",
 		"elements_data_are_valid_bonus.h": "c",
-		"se_ray_vector_bonus.h": "c",
-		"se_camera_bonus.h": "c",
-		"se_geometry_bonus.h": "c"
+		"color_disruption_utils_bonus.h": "c"
 	},
 	"C_Cpp.errorSquiggles": "disabled"
 }

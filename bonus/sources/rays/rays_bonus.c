@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rays_bonus.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: svidot <svidot@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/26 15:48:53 by svidot            #+#    #+#             */
+/*   Updated: 2024/06/26 15:48:54 by svidot           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "rays_bonus.h"
 
 /**========================================================================
@@ -53,10 +65,10 @@ void	*launch_rays(void *multy_input)
 	int				y;
 
 	multy = (t_multy_threads *) multy_input;
-	y = multy->y_stt;
+	y = multy->y_stt - 1;
 	while (++y < multy->y_end)
 	{
-		x = multy->x_stt;
+		x = multy->x_stt - 1;
 		while (++x < multy->x_end)
 		{
 			// if (multy->data->event.antia == 2)
