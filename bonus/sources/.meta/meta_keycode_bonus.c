@@ -13,6 +13,8 @@ void	video_move_cam(t_cam *cam);
 void	video_move_light(t_spotlight *light);
 void	newton_move_spheres(t_data *data);
 
+void	engrenages(t_data *data);
+
 
 /**========================================================================
  *                           META_KEYCODE
