@@ -31,7 +31,7 @@ void	meta_keycode(int keycode, t_data *data, t_mlx *mlx)
 	}
 	if (keycode == VIDEO_NEXT_FRAME)
 	{
-		newton_move_spheres(data);
+		engrenages(data);
 	}
 
 	

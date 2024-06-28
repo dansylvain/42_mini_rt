@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   elements_data_are_valid_bonus.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svidot <svidot@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 15:44:57 by svidot            #+#    #+#             */
-/*   Updated: 2024/06/26 15:44:58 by svidot           ###   ########.fr       */
+/*   Updated: 2024/06/28 10:38:06 by dsylvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,19 +54,19 @@ int	data_str_is_valid(char *str)
 
 	token = ft_strtok(str, ", \t");
 	if (!ft_strcmp(token, "A"))
-		data_str = "4,ltr,byt,byt,byt";
+		data_str = "5,ltr,byt,byt,byt";
 	else if (!ft_strcmp(token, "C"))
-		data_str = "7,fl,fl,fl,vecr,vecr,vecr,fov";
+		data_str = "8,fl,fl,fl,vecr,vecr,vecr,fov";
 	else if (!ft_strcmp(token, "L"))
-		data_str = "7,fl,fl,fl,ltr,byt,byt,byt";
+		data_str = "8,fl,fl,fl,ltr,byt,byt,byt";
 	else if (!ft_strcmp(token, "sp"))
-		data_str = "9,fl,fl,fl,ufl,byt,byt,byt,ltr,check";
+		data_str = "10,fl,fl,fl,ufl,byt,byt,byt,ltr,check";
 	else if (!ft_strcmp(token, "pl"))
 		data_str = "11,fl,fl,fl,vecr,vecr,vecr,byt,byt,byt,ltr";
 	else if (!ft_strcmp(token, "cy"))
 		data_str = "13,fl,fl,fl,vecr,vecr,vecr,ufl,ufl,byt,byt,byt,ltr";
 	else if (!ft_strcmp(token, "tr"))
-		data_str = "13,fl,fl,fl,fl,fl,fl,fl,fl,fl,byt,byt,byt,ltr";
+		data_str = "14,fl,fl,fl,fl,fl,fl,fl,fl,fl,byt,byt,byt,ltr";
 	else if (!ft_strncmp(token, "#", 1))
 		return (1);
 	else
@@ -78,8 +78,6 @@ int	data_str_is_valid(char *str)
 
 /**========================================================================
  *                           CHECK_DATA
- *? added 	if (i > len_max + 2) return (0); to check arument nbr
- *? len_max => number of nbrs(double, int) in the string
  *========================================================================**/
 int	check_data(char *token, char *check)
 {
@@ -92,7 +90,9 @@ int	check_data(char *token, char *check)
 	i = 1;
 	if (check_data_nbrs(token, num, &i) == 0)
 		return (free_tab(num), 0);
-	if (i != len_max + 2 && i != len_max + 1)
+	if (len_max != 10 && i != len_max + 1)
+		return (free_tab(num), 0);
+	if (len_max == 10 && i != len_max + 1 && i != len_max)
 		return (free_tab(num), 0);
 	free_tab(num);
 	return (1);
@@ -100,7 +100,6 @@ int	check_data(char *token, char *check)
 
 /**========================================================================
  *                           IS_VALID_XPM
- * ! file verification to be added with "open"
  *========================================================================**/
 int	is_valid_xpm(char *str)
 {
