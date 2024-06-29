@@ -6,7 +6,7 @@
 /*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 13:40:22 by svidot            #+#    #+#             */
-/*   Updated: 2024/06/28 07:30:05 by dsylvain         ###   ########.fr       */
+/*   Updated: 2024/06/29 16:03:13 by dsylvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # define SE_MINI_STRUCT_BONUS_H
 
 # define BUMP_SCALE 0.001
-# define WIDTH 800
-# define HEIGHT 600
+# define WIDTH 1200
+# define HEIGHT 900
 # define AXIS 3
 # define MTX 4
 # define BIG_VALUE 100000000
